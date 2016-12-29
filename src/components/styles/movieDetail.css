@@ -1,0 +1,24 @@
+.title {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.inner {
+  padding: 25px;
+}
+
+.container {
+  margin-top: 50px;
+}
+
+.section {
+  margin-top: 50px;
+}
+
+.button {
+  font-size: 18px;
+  border-radius: 20px;
+  margin-top: 25px;
+  padding-left: 70px;
+  padding-right: 70px;
+}
