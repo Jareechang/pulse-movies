@@ -12,16 +12,11 @@ import * as MovieDetailsAPI from '../api/MovieDetailsAPI';
 /* Compoents */
 import MovieDetails from '../components/MovieDetails';
 
-const Button = (props) => (
-  <button onClick={props.clickAction} className='btn btn-secondary'>
-    Back
-  </button>
-);
-
 class MovieDetailContainer extends Component {
 
   constructor(props) {
     super(props);
+    this.constructor.navigateHome = this.constructor.navigateHome.bind(this);
   }
 
   static contextTypes = {
@@ -38,6 +33,10 @@ class MovieDetailContainer extends Component {
     }
   }
 
+  static navigateHome() {
+    this.context.history.push('/');
+  }
+
   componentWillMount() {
     dispatchAsync(
       MovieDetailsAPI.fetchMovieDetails('sdfs'),
@@ -50,13 +49,13 @@ class MovieDetailContainer extends Component {
   }
 
   render() {
-    const goBackToIndexPath = _ => this.context.history.push('/')
+    console.log(this.constructor.navigateToHome)
     return (
       <div>
         <MovieDetails
+          back={this.constructor.navigateHome}
           {...this.state.movieDetails}
         />
-        <Button clickAction={goBackToIndexPath} />
       </div>
     );
   }

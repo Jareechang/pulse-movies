@@ -8,6 +8,12 @@ const GenreBlock = ({ name }) => (
   </p>
 )
 
+const Button = (props) => (
+  <button onClick={props.clickAction} className='btn btn-secondary'>
+    Back
+  </button>
+);
+
 const MovieDetails = (props) => {
 
   const {
@@ -45,6 +51,9 @@ const MovieDetails = (props) => {
               props.genres.map(genre => <GenreBlock key={genre.id} {...genre} />)
             }
           </div>
+          <Button clickAction={props.back}>
+              Back
+          </Button>
         </div>
       </div>
     </div>

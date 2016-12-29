@@ -19,10 +19,15 @@ const MovieCards = ({ Title:  title, Poster: url, Year: year }) => (
     to={`/details/${convertTitleToLink(title)}`}
     style={{ 'textDecoration': 'none', color: '#000' }}
   >
-    <div className={`col-md-4 col-xs-12 text-center ${movieCardStyles.container}`}>
+    <div className={`col-md-3 col-xs-12 text-center ${movieCardStyles.container}`}>
       <div className={movieCardStyles.inner}>
-        <p>{ `${title} (${year})`}</p>
+      <div className={movieCardStyles.textSection}>
+        <p className={movieCardStyles.para}>{ `${title} (${year})`}</p>
+      </div>
+      <div className={movieCardStyles.imgSection}>
         <img className={movieCardStyles.img} src={url} />
+      </div>
+      <button className={`btn btn-secondary ${movieCardStyles.button}`}>Details</button>
       </div>
     </div>
   </Link>
@@ -84,9 +89,8 @@ export default class Movies extends Component {
      *  @return Function -> returns a composed function with filters taking data as arugment
      */
     const reduceFilter = filters => (
-      (data) => (
-        filters.reduce((p, c) => p.filter(c),
-          data)
+      data => (
+        filters.reduce((p, c) => p.filter(c), data)
       )
     );
     const applyFiltersTo = reduceFilter([typeFilter, queryFilter]);
