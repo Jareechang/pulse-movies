@@ -48,7 +48,7 @@ module.exports = {
   output: {
     path: __dirname + "/dist/",
     filename: "client.min.js",
-    publicPath: '/'
+    publicPath: '/pulse-movies/'
   },
   plugins: debug
     ? [envPlugin]
