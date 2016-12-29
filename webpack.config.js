@@ -2,6 +2,8 @@ var debug = process.env.NODE_ENV !== "production";
 var webpack = require('webpack');
 var path = require('path');
 
+var publicPath = '/pulse-movie/dist/';
+
 const envPlugin = new webpack.DefinePlugin({
   'process.env': {
     'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
@@ -48,7 +50,7 @@ module.exports = {
   output: {
     path: __dirname + "/dist/",
     filename: "client.min.js",
-    publicPath: '/dist/'
+    publicPath: publicPath
   },
   plugins: debug
     ? [envPlugin]
