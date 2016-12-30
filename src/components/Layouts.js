@@ -9,10 +9,6 @@ export default class Layout extends Component {
     };
   }
 
-  static contextTypes = {
-    history: React.PropTypes.object.isRequired
-  }
-
   render() {
     return (
       <div>

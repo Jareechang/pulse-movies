@@ -7,15 +7,10 @@ import MovieDetails from '../components/MovieDetails';
 import MovieContainer from '../containers/MovieContainer';
 import MovieDetailContainer from '../containers/MovieDetailsContainer';
 
-const AppRoutes = () => (
-  <Router history={browserHistory}>
-    <Route path='/' component={Layout}>
-      <IndexRoute component={MovieContainer} />
-      <Route path='/:type' component={MovieContainer} />
-      <Route path='/details/:title' component={MovieDetailContainer} />
-    </Route>
-  </Router>
+export default (
+  <Route path='/' component={Layout}>
+    <IndexRoute component={MovieContainer} />
+    <Route path=':type' component={MovieContainer} />
+    <Route path='details/:title' component={MovieDetailContainer} />
+  </Route>
 );
-
-
-export default AppRoutes;

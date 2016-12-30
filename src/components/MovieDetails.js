@@ -2,6 +2,8 @@ import React from 'react';
 
 import movieDetailStyles from './styles/movieDetail.css';
 
+import { Link } from 'react-router';
+
 const IMG_ROOT_URL = 'https://image.tmdb.org/t/p/w500';
 
 const GenreBlock = ({ name }) => (
@@ -11,9 +13,11 @@ const GenreBlock = ({ name }) => (
 )
 
 const Button = (props) => (
-  <button onClick={props.clickAction} className={`btn btn-secondary ${props.styles}`}>
-    Back
-  </button>
+  <Link to='/' style={{ textDeocration: 'none', color: '#000' }}>
+    <button className={`btn btn-secondary ${props.styles}`}>
+      Back
+    </button>
+  </Link>
 );
 
 const TextSection = ({ text, display }) => (
@@ -40,7 +44,7 @@ const MovieDetails = (props) => {
   if (!props.id) {
     return (
       <div className='text-center'>
-        <img src={require('../images/loading.gif')} />
+        Loading...
       </div>
     );
   }
